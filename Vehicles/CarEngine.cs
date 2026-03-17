@@ -9,7 +9,8 @@ namespace Vehicles
 {
     public  class CarEngine : Engine
     {
-        public CarEngine(int horsepower, FuelType fuelType) : base(horsepower, fuelType)
+        public CarEngine(int horsepower, FuelType fuelType, int topSpeed) 
+            : base(horsepower, fuelType, topSpeed)
         {
 
         }

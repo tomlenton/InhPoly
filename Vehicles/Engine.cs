@@ -11,12 +11,15 @@ namespace Vehicles
         internal bool Running { get; set; } = false;
         internal int Horsepower { get; set; }
 
+        internal int TopSpeed {  get; set; }
+
         internal FuelType FuelType { get; set; }
 
-        public Engine (int horsepower, FuelType fuelType)
+        public Engine (int horsepower, FuelType fuelType, int topSpeed)
         {
             Horsepower = horsepower;
             FuelType = fuelType;
+            TopSpeed = topSpeed;
         }
 
         public void Start()

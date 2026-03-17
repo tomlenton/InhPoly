@@ -10,8 +10,8 @@ namespace Vehicles
     public class Boat : Vehicle
     {
         bool IsInWater { get; set; }
-        public Boat(string make, string model, bool isInWater, int horsepower, FuelType fuelType)
-            : base(make, model, new BoatEngine(horsepower, fuelType))
+        public Boat(string make, string model, bool isInWater, int horsepower, FuelType fuelType, int topSpeed)
+            : base(make, model, new BoatEngine(horsepower, fuelType, topSpeed))
         {
             IsInWater = isInWater;
         }
@@ -27,9 +27,19 @@ namespace Vehicles
                 FuelType.BoatFuel => 4.0D,
                 _ => throw new InvalidOperationException($"Unexpected value: {EngineType.FuelType}")
             };
-            for (int i = 0; i < 10; i++)
+
+            for (double i = 0; i < 2; i += 0.1)
             {
-                Console.WriteLine($"{message}{((EngineType.Horsepower * fuelMod) * Math.Exp(Math.Sqrt(i)) / 2) * (IsInWater ? 2.0 : 0.0)}mph");
+                double newSpeed = ((EngineType.Horsepower * fuelMod) * Math.Exp(Math.Sqrt(i)) / 2) * (IsInWater ? 2.0 : 0.0);
+
+                if (newSpeed > EngineType.TopSpeed)
+                {
+                    Console.WriteLine($"{message}{EngineType.TopSpeed:F2}mph");
+                }
+                else
+                {
+                    Console.WriteLine($"{message}{newSpeed:F2}mph");
+                }
             }
         }
         public void GetIntoTheWater()

@@ -8,8 +8,8 @@ namespace Vehicles
 {
     public class Car : Vehicle
     {
-        public Car(string make, string model, int horsepower, FuelType fuelType) 
-            : base(make, model, new CarEngine(horsepower, fuelType))
+        public Car(string make, string model, int horsepower, FuelType fuelType, int topSpeed) 
+            : base(make, model, new CarEngine(horsepower, fuelType, topSpeed))
         {
 
         }
@@ -24,9 +24,17 @@ namespace Vehicles
                 FuelType.Diesel => 1.8D,
                 _ => throw new InvalidOperationException($"Unexpected value: {EngineType.FuelType}")
             };
-            for (int i = 0; i < 10; i++)
+            for (double i = 0; i < 2; i += 0.1)
             {
-                Console.WriteLine($"{message}{((EngineType.Horsepower * fuelMod) * Math.Exp(Math.Sqrt(i)) / 2):F2}mph");
+                double newSpeed = ((EngineType.Horsepower * fuelMod) * Math.Exp(Math.Sqrt(i)) / 2);
+                if (newSpeed > EngineType.TopSpeed)
+                {
+                    Console.WriteLine($"{message}{EngineType.TopSpeed:F2}mph");
+                }
+                else
+                {
+                    Console.WriteLine($"{message}{newSpeed:F2}mph");
+                }
             }
         }
     }

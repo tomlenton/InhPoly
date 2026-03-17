@@ -8,7 +8,8 @@ namespace Vehicles
 {
     public class MotorcycleEngine : Engine
     {
-        public MotorcycleEngine(int horsepower, FuelType fuelType) : base(horsepower, fuelType)
+        public MotorcycleEngine(int horsepower, FuelType fuelType, int topSpeed) 
+            : base(horsepower, fuelType, topSpeed)
         {
 
         }
