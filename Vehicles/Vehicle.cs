@@ -39,5 +39,6 @@ namespace Vehicles
         }
 
         protected abstract void Accelerate();
+
     }
 }

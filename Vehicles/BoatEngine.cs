@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Vehicles
 {
-    public enum FuelType
+    public class BoatEngine : Engine
     {
-        Unleaded,
-        Leaded,
-        Diesel,
-        BoatFuel
+        public BoatEngine(int horsepower, FuelType fuelType) : base(horsepower, fuelType)
+        {
+
+        }
     }
 }
