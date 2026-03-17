@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Vehicles
 {
-    internal class MotorcycleEngine
+    public class MotorcycleEngine : Engine
     {
+        public MotorcycleEngine(int horsepower, FuelType fuelType) : base(120, FuelType.Unleaded)
+        {
+
+        }
     }
 }

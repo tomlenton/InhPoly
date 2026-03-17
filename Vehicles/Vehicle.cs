@@ -12,6 +12,8 @@ namespace Vehicles
         string Model { get; set; }
         int Speed { get; set; }
 
+        Engine EngineType { get; set; }
+
         //public Vehicle(string make, string model, int speed)
         //{
         //    Make = make;

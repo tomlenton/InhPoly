@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Vehicles
 {
-    internal class Motorcycle
+    public class Motorcycle : Vehicle
     {
+        bool HasSidecar { get; set; }
+
     }
 }
