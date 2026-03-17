@@ -8,17 +8,36 @@ namespace Vehicles
 {
     public abstract class Vehicle
     {
-        string Make { get; set; }
-        string Model { get; set; }
-        int Speed { get; set; }
+        internal string Make { get; set; }
+        internal string Model { get; set; }
+        int Speed { get; set; } = 0;
 
-        Engine EngineType { get; set; }
+        internal Engine EngineType { get; set; }
 
-        //public Vehicle(string make, string model, int speed)
-        //{
-        //    Make = make;
-        //    Model = model;
-        //    Speed = speed;
-        //}
+        public Vehicle(string make, string model, Engine engineType)
+        {
+            Make = make;
+            Model = model;
+            EngineType = engineType;
+        }
+
+        public void StartEngine()
+        {
+            EngineType.Start();
+        }
+
+        public void Drive()
+        {
+            if (EngineType.Running)
+            {
+                Accelerate();
+            }
+            else
+            {
+                Console.WriteLine($"{Make} {Model} is not running.");
+            }
+        }
+
+        protected abstract void Accelerate();
     }
 }

@@ -8,15 +8,20 @@ namespace Vehicles
 {
     public class Engine
     {
-        bool Running { get; set; } = false;
-        int Horespower { get; set; }
+        internal bool Running { get; set; } = false;
+        internal int Horsepower { get; set; }
 
-       FuelType FuelType { get; set; }
+        internal FuelType FuelType { get; set; }
 
         public Engine (int horsepower, FuelType fuelType)
         {
-            Horespower = horsepower;
+            Horsepower = horsepower;
             FuelType = fuelType;
+        }
+
+        public void Start()
+        {
+            Running = true;
         }
     }
 }
